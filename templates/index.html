@@ -1,0 +1,48 @@
+{% include 'header.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<div class="container">
+    <img src="{{ url_for('static', filename=filename) }}" width=600 height="400">
+</div>
+
+<div class="container" style="width=720px">
+<table class="table">
+  <caption>List of Colors</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Color</th>
+      <th scope="col">Color Code</th>
+      <th scope="col">Percetage</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for color in colors %}
+  {% set num=loop.index %}
+    <tr>
+      <th scope="row">{{num}}</th>
+      <td>
+          <div class="display" style="background-color:{{ color }}"></div>
+      </td>
+      <td>{{ color }}</td>
+      <td>{{ percent[num-1] }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+<div class="container upload">
+<form method="POST" enctype="multipart/form-data">
+    {{ wtf.quick_form(form) }}
+</form>
+
+
+</div>
