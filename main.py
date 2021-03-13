@@ -11,7 +11,7 @@ from werkzeug.utils import secure_filename
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'bmp'}
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SECRET_KEY'] = os.urandom(32)
+app.config['SECRET_KEY'] = 'dfa0eranf-aer3jlajlfdjfaf'
 
 
 class Upload(FlaskForm):
